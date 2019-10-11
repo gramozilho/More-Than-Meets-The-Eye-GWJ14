@@ -10,6 +10,12 @@ func _ready():
 	print('vy: ', viewport_size.y)
 
 func _physics_process(delta):
+	shadow_cast()
+
+func shadow_cast():
+	pass
+
+func saved_physics_process(delta):
 	var current_position = $Body.global_position
 	
 	#$Shadow.global_position.x = $Body/Sprite.global_position.x

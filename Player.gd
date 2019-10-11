@@ -8,7 +8,11 @@ const MIN_Y_SPEED = 1
 
 var y_velo = 0
 
-func _physics_process(delta):
+func _ready():
+	#$FakeShadow.collision_layer() DISABLE FAKE SHADOW ONPLAYER
+	$CollisionFake_main.disabled = true
+
+func _physics_process(delta):	
 	var move_dir = 0
 	if Input.is_action_pressed('right'):
 		move_dir += 1
@@ -25,3 +29,6 @@ func _physics_process(delta):
 	if y_velo > MAX_FALL_SPEED:
 		y_velo = MAX_FALL_SPEED
 
+func shadow_cast():
+	$Shadow.global_position.x = $Body.global_position.x
+	$Shadow.global_position.y = viewport_size.y - $Body.global_position.y
