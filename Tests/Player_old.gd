@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends "res://Object.gd"
 
 const MOVE_SPEED = 500
 const JUMP_FORCE = 1000
@@ -7,10 +7,11 @@ const MAX_FALL_SPEED = 1000
 const MIN_Y_SPEED = 1
 
 var y_velo = 0
-var viewport_size
 
 func _ready():
-	viewport_size = get_viewport().size
+	#$FakeShadow.collision_layer() DISABLE FAKE SHADOW ONPLAYER
+	$CollisionFake_left.disabled = true
+	$CollisionFake_right.disabled = true
 
 func _physics_process(delta):	
 	var move_dir = 0
@@ -28,9 +29,7 @@ func _physics_process(delta):
 		y_velo = MIN_Y_SPEED
 	if y_velo > MAX_FALL_SPEED:
 		y_velo = MAX_FALL_SPEED
-	
-	shadow_cast()
 
 func shadow_cast():
-	#$Shadow.global_position.x = $Body.global_position.x
+	$Shadow.global_position.x = $Body.global_position.x
 	$Shadow.global_position.y = viewport_size.y - $Body.global_position.y
