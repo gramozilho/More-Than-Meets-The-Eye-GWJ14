@@ -41,4 +41,7 @@ position = Vector2( 709.001, 169 )
 
 [node name="Lamp" parent="." instance=ExtResource( 8 )]
 position = Vector2( 69.4738, 88.4211 )
+
+[node name="Lamp2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 836.843, 15.7895 )
 [connection signal="light_position" from="Light" to="." method="_on_Light_light_position"]

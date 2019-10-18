@@ -78,7 +78,6 @@ func shadow_cast():
 func flip():
 	facing_right = !facing_right
 	for eye in get_tree().get_nodes_in_group("eye"):
-		#[$Body/BodyEyeLeft, $Body/BodyEyeRight, $Shadow/ShadowEyeLeft, $Shadow/ShadowEyeRight]:
 		eye.position.x *= -1
 
 func die():
