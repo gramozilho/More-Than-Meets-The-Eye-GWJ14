@@ -7,6 +7,8 @@ var sprite_size
 var raycast_group
 var body_size
 
+var is_any_colliding = true
+
 func _ready():
 	# Get viewport
 	viewport_size = get_viewport().size
@@ -16,14 +18,14 @@ func _ready():
 	
 	var shadow_size = $BodySprite.region_rect.end
 	$ShadowSprite.scale.x = body_size[0]/shadow_size[0]
-	$ShadowSprite.scale.y = body_size[1]/shadow_size[1]*1.2
+	$ShadowSprite.scale.y = body_size[1]/shadow_size[1]*1.4
 	
 	# Change collision shapes
 	for obj in [$BodyCollision, $ShadowCollision]:
-		print(obj.scale)
-		obj.scale.x = body_size[0]*$BodySprite.scale.x / (obj.shape.extents[0]*2)
-		obj.scale.y = body_size[1]*$BodySprite.scale.y / (obj.shape.extents[1]*2)
-		print('scale ', obj.scale.x, '  ext ',obj.shape.extents[0], '  body size ', body_size[0])
+		# print(obj.scale)
+		obj.scale.x = 2 #body_size[0]*$BodySprite.scale.x / (obj.shape.extents[0]*16)
+		obj.scale.y = 2 #body_size[1]*$BodySprite.scale.y / (obj.shape.extents[1]*16)
+		# print('scale ', obj.scale.x, '  ext ',obj.shape.extents[0], '  body size ', body_size[0])
 	
 	# Rotate raycast to align with light angle
 	$RayCast2D.set_cast_to(Vector2(0, raycast_size))
@@ -31,19 +33,23 @@ func _ready():
 	# add all corner raycasts
 	raycast_group = [$Pos_TL/RayCast1, $Pos_TR/RayCast2, $Pos_BL/RayCast3, $Pos_BR/RayCast4]
 	#raycast_group = get_tree().get_nodes_in_group("raycast")
-	print(raycast_group)
+	#print(raycast_group)
+
 
 func on_light_touching(coordinates):
 	var cast_shadow_vector = $BodyCollision.global_position - coordinates
 	$RayCast2D.set_cast_to(cast_shadow_vector.normalized () * raycast_size)
 	
+	is_any_colliding = false
 	for raycast in raycast_group:
 		var cast_vector = raycast.get_parent().global_position - coordinates
 		raycast.set_cast_to(cast_vector.normalized () * raycast_size)
+		is_any_colliding = is_any_colliding or raycast.is_colliding()
+	
 	# set shadow scale
 	var real_height = abs(coordinates.y - $BodyCollision.global_position.y)
 	var shadow_height= abs(coordinates.y - viewport_size.y/2)
-	shadow_scale = shadow_height / real_height
+	shadow_scale = shadow_height / max(0.01, real_height)
 
 func _physics_process(delta):
 	shadow_cast()
@@ -65,13 +71,19 @@ func shadow_cast():
 	var col_min = stored_collisions.min()
 
 	var shadow_center = (col_max + col_min)/2
-	shadow_scale = (col_max - col_min) / body_size.x * 2
+	shadow_scale = (col_max - col_min) / body_size.x * 18
 	
-	$ShadowSprite.global_position = Vector2(shadow_center, viewport_size.y - current_position.y)
+	if is_any_colliding:
+		$ShadowSprite.global_position = Vector2(shadow_center, viewport_size.y - current_position.y)
+		$ShadowCollision.disabled = false
+	else:
+		$ShadowSprite.global_position = Vector2(shadow_center, viewport_size.y*2)
+		$ShadowCollision.disabled = true
+		
 	$ShadowSprite.scale.x = shadow_scale
 	#$ShadowSprite.scale.y = 
 	
-	$ShadowCollision.scale.x = shadow_scale*1.5
+	$ShadowCollision.scale.x = shadow_scale*1.6
 
 func mirror():
 	# Fake collision position update
