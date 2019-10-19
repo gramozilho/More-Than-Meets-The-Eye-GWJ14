@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Main.tscn" type="PackedScene" id=1]
+
+[node name="Main" instance=ExtResource( 1 )]
+script = null
+
+[node name="Message" parent="Camera2D/VBoxContainer" index="0"]
+modulate = Color( 0.498039, 0, 0, 1 )
+margin_right = 24.0
+text = "Run"
+
+[node name="Instruction" parent="Camera2D/VBoxContainer" index="1"]
+margin_right = 24.0
+text = ""
+
+[node name="Extra" parent="Camera2D/VBoxContainer" index="2"]
+margin_right = 24.0

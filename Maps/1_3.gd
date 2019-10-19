@@ -19,7 +19,8 @@ func _on_TextHandler_animation_finished(anim_name):
 	print(anim_name)
 	if anim_name == "show_2":
 		#$Player.state = "freeze"
-		$CameraTween.interpolate_property($Camera2D, "position", $Camera2D.position, Vector2(viewport_size.x*3/4, viewport_size.y/2), 5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
+		#$CameraTween.interpolate_property($Camera2D, "position", $Camera2D.position, Vector2(viewport_size.x*3/4, viewport_size.y/2), 5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
+		$CameraTween.interpolate_property($Camera2D, "position", $Camera2D.position, Vector2($Camera2D.position.x, 300), 5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 		$CameraTween.start()
 		$SecondMoveTimer.start()
 	elif anim_name == "show_3_danger":
@@ -39,5 +40,5 @@ func _on_SecondMoveTimer_timeout():
 func _on_TempArea_body_entered(body):
 	if do_once_cutscene and body.is_in_group('player'):
 		$Player.state = "freeze"
-		show_first_two_labels(3)
+		show_first_two_labels(2)
 		do_once_cutscene = false

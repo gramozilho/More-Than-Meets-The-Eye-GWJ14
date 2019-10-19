@@ -14,7 +14,7 @@ func _ready():
 
 
 func restart():
-	current_level = 4
+	current_level = 1
 	load_new_level()
 
 
@@ -26,6 +26,8 @@ func next_level():
 	current_level += 1
 	if current_level > len(list_of_levels) - 1:
 		current_level = 0
+	print(current_level)
+	print(len(list_of_levels))
 	load_new_level()
 
 func load_new_level():

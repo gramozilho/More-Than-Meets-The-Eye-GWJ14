@@ -14,7 +14,7 @@ Tonight, they'll be waiting again."
 margin_top = 35.0
 margin_right = 204.0
 margin_bottom = 55.0
-text = "Back to Main Menu"
+text = "Back to Menu"
 
 [node name="Button2" parent="VBoxContainer" index="2"]
 margin_top = 59.0

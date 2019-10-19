@@ -33,6 +33,9 @@ func _ready():
 	$Camera2D/VBoxContainer/Extra.modulate = Color(1, 1, 1, 0)
 	
 	death_position = 1
+	
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		$Light.connect("light", enemy, "is_there_light")
 
 
 func _process(delta):
@@ -93,4 +96,8 @@ func _on_Player_dead():
 	elif death_position == 3:
 		scene_instance.rect_position = Vector2(512, 150)
 		scene_instance.rect_scale = Vector2(0.5, 0.5)
+	elif death_position == 4:
+		scene_instance.rect_position = Vector2(250, 75)
+		scene_instance.rect_scale = Vector2(0.75, 0.75)
+		
 	add_child(scene_instance)

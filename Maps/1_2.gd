@@ -1,6 +1,6 @@
 extends "res://Main.gd"
 
-var do_once = true
+#var do_once_1_2 = true
 
 func _ready():
 	#$Player.state = "freeze"

@@ -39,8 +39,8 @@ func _process(delta):
 		#position += error *.8 * delta
 	shadow_cast()
 	
-	if Input.is_action_just_pressed("click"):
-		there_is_light = !there_is_light
+	#if Input.is_action_just_pressed("click"):
+		#there_is_light = !there_is_light
 	
 	#old_player_pos = player_pos
 

@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Main.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Maps/3_1.gd" type="Script" id=2]
+[ext_resource path="res://Lamp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=4]
+
+[node name="Main" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Message" parent="Camera2D/VBoxContainer" index="0"]
+margin_right = 290.0
+text = "You are not alone in the shadow world."
+
+[node name="Instruction" parent="Camera2D/VBoxContainer" index="1"]
+margin_right = 290.0
+text = "These entities move faster with the lights off."
+
+[node name="Extra" parent="Camera2D/VBoxContainer" index="2"]
+margin_right = 290.0
+text = "Never let them touch you."
+
+[node name="DangerTimer" type="Timer" parent="." index="8"]
+wait_time = 5.0
+
+[node name="Enemy" parent="." index="9" instance=ExtResource( 4 )]
+position = Vector2( 1143.36, 260.313 )
+
+[node name="Lamp" parent="." index="10" instance=ExtResource( 3 )]
+position = Vector2( 500.363, 114.302 )
+[connection signal="timeout" from="DangerTimer" to="." method="_on_DangerTimer_timeout"]
