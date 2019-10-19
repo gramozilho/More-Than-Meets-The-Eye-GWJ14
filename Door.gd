@@ -1,5 +1,6 @@
 extends Area2D
 
+signal go_to_next_level
 
 func _ready():
 	var viewport_size = get_viewport().size
@@ -14,4 +15,4 @@ func _on_Door_body_entered(body):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Open":
-		pass
+		emit_signal('go_to_next_level')

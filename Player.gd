@@ -37,7 +37,6 @@ func _physics_process(delta):
 		# Start grace timer down
 		if Input.is_action_just_pressed('up') and $GraceDown.time_left == 0:
 			$GraceDown.start()
-			print('!')
 			
 		# Start grace timer up
 		if grounded:

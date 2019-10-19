@@ -35,5 +35,10 @@ func receive_click(destination):
 	
 	# else, tween to location
 	else:
-		$TweenLight.interpolate_property(self, "position", global_position, destination, 2, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
+		# Check if not travelling
+		var travel_duration = 2
+		#if $TravelTimer.time_left == 0:
+		#	$TweenLight.interpolate_property(self, "position", global_position, destination, travel_duration, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
+		#else:
+		$TweenLight.interpolate_property(self, "position", global_position, destination, travel_duration, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
 	$TweenLight.start()
