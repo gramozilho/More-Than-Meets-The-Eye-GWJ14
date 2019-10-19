@@ -4,6 +4,8 @@ onready var death_screen = load("res://DeathScreen.tscn")
 
 var shadow_casting_array
 var mouse_state = "game"
+var do_once = true
+var death_position = 1
 
 func _ready():
 	shadow_casting_array = get_tree().get_nodes_in_group("cast_shadow")
@@ -29,6 +31,8 @@ func _ready():
 	$Camera2D/VBoxContainer/Message.modulate = Color(1, 1, 1, 0)
 	$Camera2D/VBoxContainer/Instruction.modulate = Color(1, 1, 1, 0)
 	$Camera2D/VBoxContainer/Extra.modulate = Color(1, 1, 1, 0)
+	
+	death_position = 1
 
 
 func _process(delta):
@@ -50,9 +54,6 @@ func _on_Door_go_to_next_level():
 
 func kill_player():
 	$Player.die()
-	# Instance death screen
-	var scene_instance = death_screen.instance()
-	add_child(scene_instance)
 
 
 func _on_Light_light(on):
@@ -67,12 +68,12 @@ func _on_Light_light(on):
 func _on_TextHandler_animation_finished(anim_name):
 	pass #$Camera2D/VBoxContainer/TextHandler.play("show_2")
 
-func show_first_two_labels():
+func show_first_two_labels(time_delay):
 	$MessageTimer.wait_time = .5
 	$MessageTimer.start()
 	yield($MessageTimer, "timeout")
 	$Camera2D/VBoxContainer/TextHandler.play("show_1")
-	$MessageTimer.wait_time = 1
+	$MessageTimer.wait_time = time_delay
 	$MessageTimer.start()
 	yield($MessageTimer, "timeout")
 	$Camera2D/VBoxContainer/TextHandler.play("show_2")
@@ -81,3 +82,15 @@ func hide_all_labels():
 	$Camera2D/VBoxContainer/Message.modulate = Color(1, 1, 1, 0)
 	$Camera2D/VBoxContainer/Instruction.modulate = Color(1, 1, 1, 0)
 	$Camera2D/VBoxContainer/Extra.modulate = Color(1, 1, 1, 0)
+
+
+func _on_Player_dead():
+	# Instance death screen
+	var scene_instance = death_screen.instance()
+	if death_position == 2:
+		scene_instance.rect_position = Vector2(512, 0)
+		scene_instance.rect_scale = Vector2(0.5, 0.5)
+	elif death_position == 3:
+		scene_instance.rect_position = Vector2(512, 150)
+		scene_instance.rect_scale = Vector2(0.5, 0.5)
+	add_child(scene_instance)

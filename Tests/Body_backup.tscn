@@ -5,10 +5,8 @@
 [ext_resource path="res://Body.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 20 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20, 20 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 19, 19, 19, -19, -19, -19, -19, 19 )
@@ -34,7 +32,7 @@ shape = SubResource( 2 )
 [node name="ShadowSprite" type="Sprite" parent="."]
 modulate = Color( 0.631373, 0.290196, 0.290196, 0.745098 )
 position = Vector2( -0.0140937, 0.023356 )
-scale = Vector2( 1.26486, 1.26544 )
+scale = Vector2( 0.624863, 0.625442 )
 texture = ExtResource( 2 )
 flip_v = true
 region_enabled = true

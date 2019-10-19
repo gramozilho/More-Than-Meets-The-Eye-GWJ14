@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal next_level
+signal dead
 
 const MOVE_SPEED = 400
 const JUMP_FORCE = 600
@@ -11,12 +12,14 @@ const MIN_Y_SPEED = 1
 var y_velo = 0
 var viewport_size
 var facing_right = true
+var die_once
 
 var state = "game" # can be game, freeze
 
 func _ready():
 	viewport_size = get_viewport().size
 	state = "game"
+	die_once = true
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_accept"):
@@ -82,8 +85,11 @@ func flip():
 		eye.position.x *= -1
 
 func die():
-	$AnimationPlayer.play("die")
-	state = "die"
+	if die_once:
+		$AnimationPlayer.play("die")
+		state = "die"
+		$CollisionBody.disabled = true
+		die_once = false
 
 func enter_door():
 	state = "freeze"
@@ -92,6 +98,6 @@ func enter_door():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "die":
-		pass
+		emit_signal("dead")
 	elif anim_name == "next_level":
 		emit_signal('next_level')

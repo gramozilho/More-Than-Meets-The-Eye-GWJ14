@@ -22,10 +22,10 @@ func _ready():
 	$ShadowSprite.scale.y = body_size[1]/shadow_size[1]*1.4
 	
 	# Change collision shapes
-	#for obj in [$BodyCollision, $ShadowCollision]:
+	for obj in [$BodyCollision, $ShadowCollision]:
 		# print(obj.scale)
-		#obj.scale.x = 2 #body_size[0]*$BodySprite.scale.x / (obj.shape.extents[0]*16)
-		#obj.scale.y = 2 #body_size[1]*$BodySprite.scale.y / (obj.shape.extents[1]*16)
+		obj.scale.x = 2 #body_size[0]*$BodySprite.scale.x / (obj.shape.extents[0]*16)
+		obj.scale.y = 2 #body_size[1]*$BodySprite.scale.y / (obj.shape.extents[1]*16)
 		# print('scale ', obj.scale.x, '  ext ',obj.shape.extents[0], '  body size ', body_size[0])
 	
 	# Rotate raycast to align with light angle
@@ -72,7 +72,7 @@ func shadow_cast():
 	var col_min = stored_collisions.min()
 
 	var shadow_center = (col_max + col_min)/2
-	shadow_scale = (col_max - col_min) / body_size.x * 10
+	shadow_scale = (col_max - col_min) / body_size.x * 18
 	
 	if is_any_colliding and lights_on:
 		$ShadowSprite.global_position = Vector2(shadow_center, viewport_size.y - current_position.y)
@@ -81,7 +81,7 @@ func shadow_cast():
 		$ShadowSprite.global_position = Vector2(shadow_center, viewport_size.y*2)
 		$ShadowCollision.disabled = true
 		
-	$ShadowSprite.scale.x = shadow_scale*1.7
+	$ShadowSprite.scale.x = shadow_scale
 	#$ShadowSprite.scale.y = 
 	
 	$ShadowCollision.scale.x = shadow_scale*1.4

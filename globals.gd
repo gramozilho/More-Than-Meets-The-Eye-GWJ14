@@ -1,7 +1,7 @@
 extends Node
 
 var list_of_levels
-var current_level = 0
+var current_level
 var current_scene = null
 var map_fodler_path = "res://Maps/"
 
@@ -14,7 +14,7 @@ func _ready():
 
 
 func restart():
-	current_level = 0
+	current_level = 4
 	load_new_level()
 
 

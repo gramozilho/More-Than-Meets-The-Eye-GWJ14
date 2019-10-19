@@ -7,19 +7,31 @@
 
 [node name="Main" instance=ExtResource( 1 )]
 
+[node name="Light" parent="." index="2"]
+position = Vector2( 412.685, -399.254 )
+z_index = 1
+
 [node name="Door" parent="." index="4"]
 position = Vector2( -9.55402, 267 )
 
+[node name="VBoxContainer" parent="Camera2D" index="0"]
+visible = false
+
 [node name="Body" parent="." index="8" instance=ExtResource( 2 )]
-position = Vector2( 262.105, 208.421 )
+position = Vector2( 468.013, 156.11 )
 
-[node name="Body2" parent="." index="9" instance=ExtResource( 2 )]
-position = Vector2( 418.946, 274.736 )
+[node name="Body3" parent="." index="9" instance=ExtResource( 2 )]
+position = Vector2( 171.748, 274.128 )
 
-[node name="Lamp" parent="." index="10" instance=ExtResource( 3 )]
-position = Vector2( 147.368, 154.895 )
+[node name="Body2" parent="." index="10" instance=ExtResource( 2 )]
+position = Vector2( 584.414, 193.115 )
+scale = Vector2( 1, 5 )
 
 [node name="Lamp2" parent="." index="11" instance=ExtResource( 3 )]
-position = Vector2( 66.0645, 180.172 )
+position = Vector2( 209.618, 52.3897 )
 
-[node name="Enemy" parent="." index="12" instance=ExtResource( 4 )]
+[node name="Lamp3" parent="." index="12" instance=ExtResource( 3 )]
+position = Vector2( 499.033, 44.3145 )
+z_index = 2
+
+[node name="Enemy" parent="." index="13" instance=ExtResource( 4 )]
