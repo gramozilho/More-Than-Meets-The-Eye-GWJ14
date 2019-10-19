@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var death_screen = load("res://DeathScreen.tscn")
+
 var shadow_casting_array
 var mouse_state = "game"
 
@@ -10,6 +12,9 @@ func _ready():
 	
 	for lamp in get_tree().get_nodes_in_group("lamp"):
 		lamp.connect('lamp_touched', $Light, 'receive_click')
+	
+	for bad_area in get_tree().get_nodes_in_group("bad_area"):
+		bad_area.connect("kill_player", self, "kill_player")
 
 
 func _process(delta):
@@ -27,3 +32,10 @@ func _on_Light_light_position(light_position):
 
 func _on_Door_go_to_next_level():
 	globals.next_level()
+
+
+func kill_player():
+	$Player.die()
+	# Instance death screen
+	var scene_instance = death_screen.instance()
+	add_child(scene_instance)

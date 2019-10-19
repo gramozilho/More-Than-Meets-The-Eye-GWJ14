@@ -18,6 +18,10 @@ func restart():
 	load_new_level()
 
 
+func restart_scene():
+	load_new_level()
+
+
 func next_level():
 	current_level += 1
 	if current_level > len(list_of_levels) - 1:
@@ -34,8 +38,7 @@ func goto_scene(path):
 
 func _deferred_goto_scene(path):
 	# It is now safe to remove the current scene
-	print(path)
-	if current_scene:
+	if current_scene != null:
 		current_scene.free()
 	# Load the new scene.
 	var s = ResourceLoader.load(path)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Body.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=7]
 [ext_resource path="res://Environment/Floor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Environment/Border.tscn" type="PackedScene" id=9]
+[ext_resource path="res://BadArea.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -25,7 +26,7 @@ position = Vector2( 500, 300 )
 [node name="Node2D" parent="Border" instance=ExtResource( 8 )]
 
 [node name="Light" parent="." instance=ExtResource( 4 )]
-position = Vector2( 200.282, 111.343 )
+position = Vector2( 231.571, 88.2167 )
 scale = Vector2( 3, 3 )
 color = Color( 0.819608, 0.74902, 0.619608, 1 )
 energy = 1.0
@@ -48,8 +49,12 @@ position = Vector2( 69.4738, 88.4211 )
 position = Vector2( 836.843, 15.7895 )
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
-position = Vector2( 175.346, 236.755 )
+position = Vector2( 418.546, 267.155 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -1
+
+[node name="BadArea" parent="." instance=ExtResource( 10 )]
+position = Vector2( 217.033, 283.335 )
+scale = Vector2( 5.16, 1.4 )
 [connection signal="light_position" from="Light" to="." method="_on_Light_light_position"]
 [connection signal="go_to_next_level" from="Door" to="." method="_on_Door_go_to_next_level"]
