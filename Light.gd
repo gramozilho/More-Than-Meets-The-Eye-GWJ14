@@ -35,5 +35,5 @@ func receive_click(destination):
 	
 	# else, tween to location
 	else:
-		$TweenLight.interpolate_property(self, "position", global_position, destination, 0.5, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
+		$TweenLight.interpolate_property(self, "position", global_position, destination, 2, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
 	$TweenLight.start()

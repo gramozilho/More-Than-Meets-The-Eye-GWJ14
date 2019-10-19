@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal next_level
+
 const MOVE_SPEED = 400
 const JUMP_FORCE = 600
 const GRAVITY = 40
@@ -83,3 +85,14 @@ func flip():
 func die():
 	$AnimationPlayer.play("die")
 	state = "die"
+
+func enter_door():
+	state = "freeze"
+	$AnimationPlayer.play('enter_door')
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "die":
+		pass
+	elif anim_name == "next_level":
+		emit_signal('next_level')
