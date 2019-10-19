@@ -15,6 +15,8 @@ func _ready():
 	
 	for bad_area in get_tree().get_nodes_in_group("bad_area"):
 		bad_area.connect("kill_player", self, "kill_player")
+		if bad_area.is_in_group("enemy"):
+			bad_area.connect("light", bad_area, "is_there_light")
 
 
 func _process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Body.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Environment/Floor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Environment/Border.tscn" type="PackedScene" id=9]
 [ext_resource path="res://BadArea.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -38,6 +39,7 @@ shadow_filter_smooth = 64.0
 position = Vector2( 362, 204 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32.0812, 281.808 )
 
 [node name="Body2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 709.001, 169 )
@@ -56,5 +58,52 @@ z_index = -1
 [node name="BadArea" parent="." instance=ExtResource( 10 )]
 position = Vector2( 217.033, 283.335 )
 scale = Vector2( 5.16, 1.4 )
+
+[node name="Enemy" parent="." instance=ExtResource( 11 )]
+position = Vector2( 483.816, 69.2329 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 300 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 600.0
+margin_top = -270.0
+margin_right = -600.0
+margin_bottom = -200.0
+grow_horizontal = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="Camera2D/VBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 3
+margin_top = 19.0
+margin_right = 242.0
+margin_bottom = 33.0
+grow_vertical = 2
+text = "You wake up in the dark."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intruction" type="Label" parent="Camera2D/VBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 3
+margin_top = 37.0
+margin_right = 242.0
+margin_bottom = 51.0
+grow_vertical = 2
+text = "Click on the light bulb to turn light on."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="light_position" from="Light" to="." method="_on_Light_light_position"]
 [connection signal="go_to_next_level" from="Door" to="." method="_on_Door_go_to_next_level"]

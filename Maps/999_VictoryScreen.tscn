@@ -8,7 +8,7 @@
 margin_right = 252.0
 margin_bottom = 31.0
 text = "You escaped for now.
-Tonight, they'll be waiting for you again."
+Tonight, they'll be waiting again."
 
 [node name="Button" parent="VBoxContainer" index="1"]
 margin_top = 35.0
