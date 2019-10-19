@@ -130,7 +130,7 @@ anims/die = SubResource( 2 )
 anims/enter_door = SubResource( 3 )
 
 [node name="GraceDown" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
 one_shot = true
 
 [node name="GraceUp" type="Timer" parent="."]

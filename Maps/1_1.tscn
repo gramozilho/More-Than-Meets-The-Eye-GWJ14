@@ -1,10 +1,48 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Main.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Lamp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Maps/1_1.gd" type="Script" id=3]
 
-[node name="Main" index="0" instance=ExtResource( 1 )]
+[node name="Main" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
-[node name="Camera2D" parent="." index="11"]
-offset = Vector2( 256, 0 )
+[node name="WallLeft" parent="Environment" index="1"]
+position = Vector2( 505, 300 )
+
+[node name="Bed" parent="Environment" index="4"]
+visible = true
+position = Vector2( 550.25, 286.723 )
+
+[node name="Camera2D" parent="." index="5"]
+position = Vector2( 768, 150 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="VBoxContainer" parent="Camera2D" index="0"]
+margin_top = 0.0
+grow_vertical = 2
+
+[node name="Message" parent="Camera2D/VBoxContainer" index="0"]
+margin_top = 0.0
+margin_right = 278.0
+margin_bottom = 14.0
+
+[node name="Instruction" parent="Camera2D/VBoxContainer" index="1"]
+margin_top = 18.0
+margin_right = 278.0
+margin_bottom = 32.0
+text = "Click on the light bulb to switch light on/off."
+
+[node name="Extra" parent="Camera2D/VBoxContainer" index="2"]
+visible = false
+margin_top = 36.0
+margin_right = 278.0
+margin_bottom = 50.0
+text = ""
+
+[node name="Lamp" parent="." index="6" instance=ExtResource( 2 )]
+position = Vector2( 766.45, 91.8333 )
+
+[node name="MessageTimer" parent="." index="8"]
+wait_time = 2.0

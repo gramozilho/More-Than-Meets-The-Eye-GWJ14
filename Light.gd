@@ -10,7 +10,7 @@ var light_energy = 1
 func _ready():
 	old_position = global_position
 	self.energy = light_energy
-	light_changed()
+	light_changed(false)
 
 
 func _process(delta):
@@ -26,27 +26,35 @@ func _process(delta):
 
 func receive_click(destination):
 	# If light is off, turn on at location
-	if self.energy == 0:
-		global_position = destination
-		$TweenLight.interpolate_property(self, "energy", 0, light_energy, 0.5, Tween.TRANS_ELASTIC, Tween.EASE_OUT)
-		light_changed()
-	# if mouse on same place as light currently, off
-	elif global_position == destination:
-		print()
-		$TweenLight.interpolate_property(self, "energy", light_energy, 0, 0.5, Tween.TRANS_EXPO, Tween.EASE_OUT)
-		light_changed()
-	# else, tween to location
-	else:
-		# Check if not travelling
-		var travel_duration = 2
-		#if $TravelTimer.time_left == 0:
-		#	$TweenLight.interpolate_property(self, "position", global_position, destination, travel_duration, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
-		#else:
-		$TweenLight.interpolate_property(self, "position", global_position, destination, travel_duration, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
-	$TweenLight.start()
+	if $TravelTimer.time_left == 0:
+		$TravelTimer.start()
+		if self.energy == 0:
+			global_position = destination
+			$TweenLight.interpolate_property(self, "energy", 0, light_energy, 0.5, Tween.TRANS_ELASTIC, Tween.EASE_OUT)
+			light_changed(true)
+		# if mouse on same place as light currently, off
+		elif global_position == destination:
+			print()
+			$TweenLight.interpolate_property(self, "energy", light_energy, 0, 0.5, Tween.TRANS_EXPO, Tween.EASE_OUT)
+			light_changed(false)
+		# else, tween to location
+		else:
+			# Check if not travelling
+			var travel_duration = 1
+			#if $TravelTimer.time_left == 0:
+			#	$TweenLight.interpolate_property(self, "position", global_position, destination, travel_duration, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
+			#else:
+			$TweenLight.interpolate_property(self, "position", global_position, destination, travel_duration, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
+		$TweenLight.start()
 
-func light_changed():
-	if self.energy > 0:
-		emit_signal("ligth", true)
+
+func light_changed(on):
+	if on:
+		emit_signal("light", true)
 	else:
-		emit_signal("ligth", false)
+		emit_signal("light", false)
+	#if self.energy > 0:
+	#	emit_signal("light", true)
+	#else:
+	#	emit_signal("light", false)
+	#print('energy: ', self.energy)

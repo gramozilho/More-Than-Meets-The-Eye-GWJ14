@@ -1,16 +1,109 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Body.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Lamp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Bed.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/colors.PNG" type="Texture" id=3]
 [ext_resource path="res://Light.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Door.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/bg.png" type="Texture" id=6]
 [ext_resource path="res://Main.gd" type="Script" id=7]
 [ext_resource path="res://Environment/Floor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Environment/Border.tscn" type="PackedScene" id=9]
-[ext_resource path="res://BadArea.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Enemy.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Animation" id=2]
+resource_name = "hide_1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "hide_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Instruction:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "hide_3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Extra:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "show_1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Message:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "show_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Instruction:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "show_3"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Extra:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -19,15 +112,36 @@ script = ExtResource( 7 )
 position = Vector2( 522.069, 127.621 )
 scale = Vector2( -9.19506, 2.69885 )
 z_index = -1
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 500, 340, 120, 130 )
 
-[node name="Border" parent="." instance=ExtResource( 9 )]
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Border" parent="Environment" instance=ExtResource( 9 )]
 position = Vector2( 500, 300 )
 
-[node name="Node2D" parent="Border" instance=ExtResource( 8 )]
+[node name="Node2D" parent="Environment/Border" instance=ExtResource( 8 )]
+
+[node name="WallLeft" parent="Environment" instance=ExtResource( 8 )]
+position = Vector2( -7, 300 )
+rotation = 1.5708
+scale = Vector2( 10, 0.1 )
+
+[node name="WallRight" parent="Environment" instance=ExtResource( 8 )]
+position = Vector2( 1031, 300 )
+rotation = 1.5708
+scale = Vector2( 10, 0.1 )
+
+[node name="Ceeling" parent="Environment" instance=ExtResource( 8 )]
+position = Vector2( 500, -7 )
+
+[node name="Bed" parent="Environment" instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 50, 286 )
 
 [node name="Light" parent="." instance=ExtResource( 4 )]
-position = Vector2( 231.571, 88.2167 )
+position = Vector2( 276.221, -45.7334 )
 scale = Vector2( 3, 3 )
 color = Color( 0.819608, 0.74902, 0.619608, 1 )
 energy = 1.0
@@ -35,32 +149,13 @@ shadow_buffer_size = 2000
 shadow_filter = 0
 shadow_filter_smooth = 64.0
 
-[node name="Body" parent="." instance=ExtResource( 2 )]
-position = Vector2( 362, 204 )
-
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 32.0812, 281.808 )
-
-[node name="Body2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 709.001, 169 )
-
-[node name="Lamp" parent="." instance=ExtResource( 3 )]
-position = Vector2( 69.4738, 88.4211 )
-
-[node name="Lamp2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 836.843, 15.7895 )
+position = Vector2( 32.081, 279 )
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
-position = Vector2( 418.546, 267.155 )
+position = Vector2( 980, 267 )
 scale = Vector2( 1.5, 1.5 )
 z_index = -1
-
-[node name="BadArea" parent="." instance=ExtResource( 10 )]
-position = Vector2( 217.033, 283.335 )
-scale = Vector2( 5.16, 1.4 )
-
-[node name="Enemy" parent="." instance=ExtResource( 11 )]
-position = Vector2( 483.816, 69.2329 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512, 300 )
@@ -71,7 +166,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 600.0
-margin_top = -270.0
+margin_top = -300.0
 margin_right = -600.0
 margin_bottom = -200.0
 grow_horizontal = 2
@@ -83,9 +178,9 @@ __meta__ = {
 [node name="Message" type="Label" parent="Camera2D/VBoxContainer"]
 modulate = Color( 0, 0, 0, 1 )
 light_mask = 3
-margin_top = 19.0
+margin_top = 25.0
 margin_right = 242.0
-margin_bottom = 33.0
+margin_bottom = 39.0
 grow_vertical = 2
 text = "You wake up in the dark."
 align = 1
@@ -93,17 +188,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Intruction" type="Label" parent="Camera2D/VBoxContainer"]
+[node name="Instruction" type="Label" parent="Camera2D/VBoxContainer"]
 modulate = Color( 0, 0, 0, 1 )
 light_mask = 3
-margin_top = 37.0
+margin_top = 43.0
 margin_right = 242.0
-margin_bottom = 51.0
+margin_bottom = 57.0
 grow_vertical = 2
 text = "Click on the light bulb to turn light on."
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Extra" type="Label" parent="Camera2D/VBoxContainer"]
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 2
+margin_top = 61.0
+margin_right = 242.0
+margin_bottom = 75.0
+text = "!!"
+align = 1
+
+[node name="TextHandler" type="AnimationPlayer" parent="Camera2D/VBoxContainer"]
+anims/hide_1 = SubResource( 2 )
+anims/hide_2 = SubResource( 5 )
+anims/hide_3 = SubResource( 6 )
+anims/show_1 = SubResource( 1 )
+anims/show_2 = SubResource( 4 )
+anims/show_3 = SubResource( 3 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.396078, 0.396078, 0.396078, 1 )
+
+[node name="MessageTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="light" from="Light" to="." method="_on_Light_light"]
 [connection signal="light_position" from="Light" to="." method="_on_Light_light_position"]
 [connection signal="go_to_next_level" from="Door" to="." method="_on_Door_go_to_next_level"]
+[connection signal="animation_finished" from="Camera2D/VBoxContainer/TextHandler" to="." method="_on_TextHandler_animation_finished"]

@@ -10,20 +10,21 @@
 scale = Vector2( 1.5, 2 )
 script = ExtResource( 2 )
 
-[node name="EyeLeft" type="Sprite" parent="Shadow" index="0"]
+[node name="EyeLeft" type="Sprite" parent="Shadow" index="0" groups=[
+"eye_s",
+]]
 position = Vector2( -1, 6 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 500, 30, 5, 2 )
 
-[node name="EyeRight" type="Sprite" parent="Shadow" index="1"]
+[node name="EyeRight" type="Sprite" parent="Shadow" index="1" groups=[
+"eye_s",
+]]
 position = Vector2( 6, 6 )
 texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 500, 30, 5, 2 )
-
-[node name="Body" parent="." index="1"]
-visible = false
 
 [node name="DreamSpeed" type="Timer" parent="." index="2"]
 wait_time = 10.0

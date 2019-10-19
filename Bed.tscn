@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/colors.PNG" type="Texture" id=2]
+[ext_resource path="res://Bed.gd" type="Script" id=3]
+
+[node name="Bed" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Down" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 55, 15 )
+
+[node name="Pillow" type="Sprite" parent="Down"]
+modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
+position = Vector2( -16, -10 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 14, 6 )
+
+[node name="Shadow" type="Sprite" parent="."]
+position = Vector2( 0.184, 0 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 55, 15 )
+
+[node name="Pillow" type="Sprite" parent="Shadow"]
+modulate = Color( 0.690196, 0.690196, 0.690196, 1 )
+position = Vector2( -16, 10 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 14, 6 )

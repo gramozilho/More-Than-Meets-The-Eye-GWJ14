@@ -24,7 +24,7 @@ position = Vector2( -0.0140937, 0.023356 )
 scale = Vector2( 0.624863, 0.625442 )
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 500, 500, 64, 64 )
+region_rect = Rect2( 500, 550, 64, 64 )
 
 [node name="ShadowCollision" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )

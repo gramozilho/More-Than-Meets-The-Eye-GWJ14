@@ -6,6 +6,7 @@ var shadow_scale = 1
 var sprite_size
 var raycast_group
 var body_size
+var lights_on
 
 var is_any_colliding = true
 
@@ -73,7 +74,7 @@ func shadow_cast():
 	var shadow_center = (col_max + col_min)/2
 	shadow_scale = (col_max - col_min) / body_size.x * 18
 	
-	if is_any_colliding:
+	if is_any_colliding and lights_on:
 		$ShadowSprite.global_position = Vector2(shadow_center, viewport_size.y - current_position.y)
 		$ShadowCollision.disabled = false
 	else:
@@ -83,8 +84,12 @@ func shadow_cast():
 	$ShadowSprite.scale.x = shadow_scale
 	#$ShadowSprite.scale.y = 
 	
-	$ShadowCollision.scale.x = shadow_scale*1.6
+	$ShadowCollision.scale.x = shadow_scale*1.4
 
 func mirror():
 	# Fake collision position update
 	$ShadowCollision.global_position.x = $ShadowSprite.global_position.x
+
+func if_light_on_enable_shadow(on):
+	print('Disabling shadow collision? ', on)
+	lights_on = on
