@@ -42,3 +42,5 @@ func _on_TempArea_body_entered(body):
 		$Player.state = "freeze"
 		show_first_two_labels(2)
 		do_once_cutscene = false
+		yield(get_tree().create_timer(1.5), "timeout")
+		Jukebox.transition()

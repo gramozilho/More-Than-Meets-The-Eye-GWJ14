@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LighOff.wav-897098dc95ac653ff4e437a881a2bfd9.sample"
+
+[deps]
+
+source_file="res://SOunds/LighOff.wav"
+dest_files=[ "res://.import/LighOff.wav-897098dc95ac653ff4e437a881a2bfd9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

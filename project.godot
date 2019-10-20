@@ -15,13 +15,15 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GodotWildJam_14"
+config/name="More than meets the eye"
+config/description="Entry by Miguel Martins for Godot Wild Game Jam #14"
 run/main_scene="res://Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/icon_new.png"
 
 [autoload]
 
 globals="*res://globals.gd"
+Jukebox="*res://Jukebox.tscn"
 
 [display]
 

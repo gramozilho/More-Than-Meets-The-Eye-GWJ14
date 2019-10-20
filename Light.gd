@@ -4,7 +4,7 @@ signal light_position
 signal light
 
 var old_position
-var light_energy = 1
+var light_energy = .8
 
 
 func _ready():
@@ -32,11 +32,13 @@ func receive_click(destination):
 			global_position = destination
 			$TweenLight.interpolate_property(self, "energy", 0, light_energy, 0.5, Tween.TRANS_ELASTIC, Tween.EASE_OUT)
 			light_changed(true)
+			Jukebox.light_on()
 		# if mouse on same place as light currently, off
 		elif global_position == destination:
 			print()
 			$TweenLight.interpolate_property(self, "energy", light_energy, 0, 0.5, Tween.TRANS_EXPO, Tween.EASE_OUT)
 			light_changed(false)
+			Jukebox.light_off()
 		# else, tween to location
 		else:
 			# Check if not travelling
@@ -45,6 +47,7 @@ func receive_click(destination):
 			#	$TweenLight.interpolate_property(self, "position", global_position, destination, travel_duration, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
 			#else:
 			$TweenLight.interpolate_property(self, "position", global_position, destination, travel_duration, Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
+			Jukebox.whoosh()
 		$TweenLight.start()
 
 

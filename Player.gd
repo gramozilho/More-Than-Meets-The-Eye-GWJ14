@@ -90,6 +90,7 @@ func die():
 		state = "die"
 		$CollisionBody.disabled = true
 		die_once = false
+		Jukebox.player_die()
 
 func enter_door():
 	state = "freeze"

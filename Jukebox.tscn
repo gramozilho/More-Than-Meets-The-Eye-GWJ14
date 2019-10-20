@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://SOunds/Waltz_To_Death.wav" type="AudioStream" id=1]
+[ext_resource path="res://Jukebox.gd" type="Script" id=2]
+[ext_resource path="res://SOunds/WakeUp.wav" type="AudioStream" id=3]
+[ext_resource path="res://SOunds/PlayerDie.wav" type="AudioStream" id=4]
+[ext_resource path="res://SOunds/ButtonPress.wav" type="AudioStream" id=5]
+[ext_resource path="res://SOunds/GhostMusic.wav" type="AudioStream" id=6]
+[ext_resource path="res://SOunds/DoorOpen.wav" type="AudioStream" id=7]
+[ext_resource path="res://SOunds/whoosh.wav" type="AudioStream" id=8]
+[ext_resource path="res://SOunds/LighOn.wav" type="AudioStream" id=9]
+[ext_resource path="res://SOunds/LighOff.wav" type="AudioStream" id=10]
+[ext_resource path="res://SOunds/Transition.wav" type="AudioStream" id=11]
+
+[node name="Jukebox" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -20.0
+attenuation = 0.307786
+
+[node name="Alarm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Transition" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = -10.0
+pitch_scale = 0.5
+
+[node name="Button" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -5.0
+
+[node name="Die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+
+[node name="LightOn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+
+[node name="LightOff" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Door" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -5.0
+
+[node name="Whoosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+
+[node name="GhostMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -20.0
+autoplay = true

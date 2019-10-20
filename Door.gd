@@ -11,6 +11,7 @@ func _on_Door_body_entered(body):
 	if body.is_in_group('player'):
 		$AnimationPlayer.play("Open")
 		body.enter_door()
+		Jukebox.door_open()
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

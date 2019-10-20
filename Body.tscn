@@ -41,6 +41,17 @@ flip_v = true
 region_enabled = true
 region_rect = Rect2( 0, 0, 32, 32 )
 
+[node name="ShadowSpriteBG" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+light_mask = 2
+position = Vector2( -0.0140937, 0.023356 )
+scale = Vector2( 1.26486, 1.26544 )
+texture = ExtResource( 2 )
+flip_v = true
+region_enabled = true
+region_rect = Rect2( 0, 0, 32, 32 )
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
 collision_mask = 8

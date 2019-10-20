@@ -85,6 +85,12 @@ func shadow_cast():
 	#$ShadowSprite.scale.y = 
 	
 	$ShadowCollision.scale.x = shadow_scale*1.4
+	
+	# Backgoround shadow
+	#$ShadowSpriteBG.position.x = $ShadowSprite.position.x
+	#$ShadowSpriteBG.scale.x = $ShadowSprite.scale.x*2
+	
+	#$ShadowSpriteBG.position.y =  ($ShadowSprite.position.y+150)/2.0
 
 func mirror():
 	# Fake collision position update
