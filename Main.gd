@@ -101,3 +101,10 @@ func _on_Player_dead():
 		scene_instance.rect_scale = Vector2(0.75, 0.75)
 		
 	add_child(scene_instance)
+
+
+func _on_StuckTimer_timeout():
+	hide_all_labels()
+	$Camera2D/VBoxContainer/Message.text = "If stuck, restart by pressing R"
+	$Camera2D/VBoxContainer/TextHandler.play("show_1")
+	

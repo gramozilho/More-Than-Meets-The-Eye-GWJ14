@@ -25,13 +25,13 @@ grow_vertical = 2
 
 [node name="Message" parent="Camera2D/VBoxContainer" index="0"]
 margin_top = 0.0
-margin_right = 278.0
-margin_bottom = 14.0
+margin_right = 377.0
+margin_bottom = 26.0
 
 [node name="Instruction" parent="Camera2D/VBoxContainer" index="1"]
-margin_top = 18.0
-margin_right = 278.0
-margin_bottom = 32.0
+margin_top = 30.0
+margin_right = 377.0
+margin_bottom = 56.0
 text = "Click on the light bulb to switch light on/off."
 
 [node name="Extra" parent="Camera2D/VBoxContainer" index="2"]
