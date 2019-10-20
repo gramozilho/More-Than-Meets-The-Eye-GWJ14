@@ -22,6 +22,7 @@ attenuation = 0.307786
 
 [node name="Alarm" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+volume_db = 20.0
 
 [node name="Transition" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 11 )
@@ -51,5 +52,5 @@ stream = ExtResource( 8 )
 
 [node name="GhostMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-volume_db = -20.0
+volume_db = -25.0
 autoplay = true

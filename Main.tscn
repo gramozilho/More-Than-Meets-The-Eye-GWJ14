@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Bed.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=7]
 [ext_resource path="res://Light.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/spot.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Text_font.tres" type="DynamicFont" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "hide_1"
@@ -192,10 +193,11 @@ __meta__ = {
 [node name="Message" type="Label" parent="Camera2D/VBoxContainer"]
 modulate = Color( 0, 0, 0, 1 )
 light_mask = 2
-margin_top = 25.0
-margin_right = 242.0
-margin_bottom = 39.0
+margin_top = 19.0
+margin_right = 465.0
+margin_bottom = 42.0
 grow_vertical = 2
+custom_fonts/font = ExtResource( 11 )
 text = "You wake up in the dark."
 align = 1
 __meta__ = {
@@ -205,10 +207,11 @@ __meta__ = {
 [node name="Instruction" type="Label" parent="Camera2D/VBoxContainer"]
 modulate = Color( 0, 0, 0, 1 )
 light_mask = 2
-margin_top = 43.0
-margin_right = 242.0
-margin_bottom = 57.0
+margin_top = 46.0
+margin_right = 465.0
+margin_bottom = 69.0
 grow_vertical = 2
+custom_fonts/font = ExtResource( 11 )
 text = "Click on the light bulb to turn light on."
 align = 1
 __meta__ = {
@@ -218,9 +221,10 @@ __meta__ = {
 [node name="Extra" type="Label" parent="Camera2D/VBoxContainer"]
 modulate = Color( 0, 0, 0, 0 )
 light_mask = 2
-margin_top = 61.0
-margin_right = 242.0
-margin_bottom = 75.0
+margin_top = 73.0
+margin_right = 465.0
+margin_bottom = 96.0
+custom_fonts/font = ExtResource( 11 )
 text = "!!"
 align = 1
 
