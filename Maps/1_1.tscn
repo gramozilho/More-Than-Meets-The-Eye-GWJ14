@@ -27,6 +27,7 @@ grow_vertical = 2
 margin_top = 0.0
 margin_right = 377.0
 margin_bottom = 26.0
+text = "You wake up in the dark."
 
 [node name="Instruction" parent="Camera2D/VBoxContainer" index="1"]
 margin_top = 30.0
@@ -39,7 +40,6 @@ visible = false
 margin_top = 36.0
 margin_right = 278.0
 margin_bottom = 50.0
-text = ""
 
 [node name="Lamp" parent="." index="6" instance=ExtResource( 2 )]
 position = Vector2( 766.45, 91.8333 )

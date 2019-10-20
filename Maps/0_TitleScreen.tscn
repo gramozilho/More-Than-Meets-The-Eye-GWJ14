@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/colors.PNG" type="Texture" id=4]
 
 [node name="Control" type="Control"]
+light_mask = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -14,6 +15,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+light_mask = 2
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -30,6 +32,7 @@ __meta__ = {
 
 [node name="Bg" type="Sprite" parent="VBoxContainer"]
 modulate = Color( 1, 1, 1, 0.831373 )
+light_mask = 2
 position = Vector2( 300, 120 )
 scale = Vector2( 15.16, 7.24 )
 texture = ExtResource( 4 )
@@ -37,6 +40,7 @@ region_enabled = true
 region_rect = Rect2( 0, 600, 50, 50 )
 
 [node name="Label" type="Label" parent="VBoxContainer"]
+light_mask = 2
 margin_right = 601.0
 margin_bottom = 89.0
 custom_fonts/font = ExtResource( 2 )
@@ -51,6 +55,7 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+light_mask = 2
 margin_top = 93.0
 margin_right = 601.0
 margin_bottom = 199.0
@@ -60,6 +65,7 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="VBoxContainer/VBoxContainer"]
+light_mask = 2
 margin_right = 601.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 3 )
@@ -69,11 +75,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="VBoxContainer/VBoxContainer"]
+light_mask = 2
 margin_top = 46.0
 margin_right = 601.0
 margin_bottom = 60.0
 
 [node name="Button2" type="Button" parent="VBoxContainer/VBoxContainer"]
+light_mask = 2
 margin_top = 64.0
 margin_right = 601.0
 margin_bottom = 106.0
@@ -81,6 +89,7 @@ custom_fonts/font = ExtResource( 3 )
 text = "Exit Game"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+light_mask = 2
 margin_top = 203.0
 margin_right = 601.0
 margin_bottom = 203.0

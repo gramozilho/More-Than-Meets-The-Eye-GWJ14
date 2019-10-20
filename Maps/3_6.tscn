@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Lamp.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Main.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Body.tscn" type="PackedScene" id=4]
+
+[node name="Main" index="0" instance=ExtResource( 3 )]
+
+[node name="Message" parent="Camera2D/VBoxContainer" index="0"]
+margin_right = 210.0
+
+[node name="Instruction" parent="Camera2D/VBoxContainer" index="1"]
+margin_right = 210.0
+
+[node name="Extra" parent="Camera2D/VBoxContainer" index="2"]
+margin_right = 210.0
+
+[node name="DangerTimer" type="Timer" parent="." index="8"]
+wait_time = 5.0
+
+[node name="Enemy" parent="." index="9" instance=ExtResource( 1 )]
+position = Vector2( 1143.36, 313.367 )
+
+[node name="Enemy2" parent="." index="10" instance=ExtResource( 1 )]
+position = Vector2( 1067.18, -38.9686 )
+
+[node name="Enemy3" parent="." index="11" instance=ExtResource( 1 )]
+position = Vector2( -106.821, 321.53 )
+
+[node name="Enemy4" parent="." index="12" instance=ExtResource( 1 )]
+position = Vector2( -34.7212, -30.8064 )
+
+[node name="Enemy5" parent="." index="13" instance=ExtResource( 1 )]
+position = Vector2( 502.625, -60.7346 )
+
+[node name="Enemy10" parent="." index="14" instance=ExtResource( 1 )]
+position = Vector2( 1135.2, 233.106 )
+
+[node name="Enemy9" parent="." index="15" instance=ExtResource( 1 )]
+position = Vector2( 1059.02, -119.231 )
+
+[node name="Enemy8" parent="." index="16" instance=ExtResource( 1 )]
+position = Vector2( -114.983, 241.268 )
+
+[node name="Enemy7" parent="." index="17" instance=ExtResource( 1 )]
+position = Vector2( -42.8834, -111.068 )
+
+[node name="Enemy6" parent="." index="18" instance=ExtResource( 1 )]
+position = Vector2( 494.463, -140.996 )
+
+[node name="Enemy15" parent="." index="19" instance=ExtResource( 1 )]
+position = Vector2( 1147.44, 147.402 )
+
+[node name="Enemy14" parent="." index="20" instance=ExtResource( 1 )]
+position = Vector2( 1065.82, 445.323 )
+
+[node name="Enemy13" parent="." index="21" instance=ExtResource( 1 )]
+position = Vector2( -102.74, 155.564 )
+
+[node name="Enemy12" parent="." index="22" instance=ExtResource( 1 )]
+position = Vector2( -36.0815, 453.486 )
+
+[node name="Enemy11" parent="." index="23" instance=ExtResource( 1 )]
+position = Vector2( 501.265, 423.557 )
+
+[node name="Lamp" parent="." index="24" instance=ExtResource( 2 )]
+position = Vector2( 500, 100 )
+
+[node name="Body" parent="." index="27" instance=ExtResource( 4 )]
+position = Vector2( 500, 200 )
+
+[node name="Body2" parent="." index="28" instance=ExtResource( 4 )]
+position = Vector2( 336.755, 136.063 )
+
+[node name="Body3" parent="." index="29" instance=ExtResource( 4 )]
+position = Vector2( 653.722, 133.342 )
+[connection signal="timeout" from="DangerTimer" to="." method="_on_DangerTimer_timeout"]

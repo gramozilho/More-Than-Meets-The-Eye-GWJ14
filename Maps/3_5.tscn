@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Body.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Main.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Lamp.tscn" type="PackedScene" id=4]
+
+[node name="Main" instance=ExtResource( 3 )]
+
+[node name="DangerTimer" type="Timer" parent="." index="8"]
+wait_time = 5.0
+
+[node name="Enemy" parent="." index="9" instance=ExtResource( 1 )]
+position = Vector2( 1143.36, 313.367 )
+
+[node name="Enemy2" parent="." index="10" instance=ExtResource( 1 )]
+position = Vector2( 1067.18, -38.9686 )
+
+[node name="Enemy3" parent="." index="11" instance=ExtResource( 1 )]
+position = Vector2( -106.821, 321.53 )
+
+[node name="Enemy4" parent="." index="12" instance=ExtResource( 1 )]
+position = Vector2( -34.7212, -30.8064 )
+
+[node name="Enemy5" parent="." index="13" instance=ExtResource( 1 )]
+position = Vector2( 502.625, -60.7346 )
+
+[node name="Lamp" parent="." index="14" instance=ExtResource( 4 )]
+position = Vector2( 500, 100 )
+
+[node name="Lamp2" parent="." index="15" instance=ExtResource( 4 )]
+position = Vector2( 350, 100 )
+
+[node name="Lamp3" parent="." index="16" instance=ExtResource( 4 )]
+position = Vector2( 650, 100 )
+
+[node name="Body" parent="." index="19" instance=ExtResource( 2 )]
+position = Vector2( 500, 200 )
+[connection signal="timeout" from="DangerTimer" to="." method="_on_DangerTimer_timeout"]

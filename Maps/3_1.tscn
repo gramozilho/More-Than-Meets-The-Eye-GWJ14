@@ -9,15 +9,15 @@
 script = ExtResource( 2 )
 
 [node name="Message" parent="Camera2D/VBoxContainer" index="0"]
-margin_right = 290.0
+margin_right = 386.0
 text = "You are not alone in the shadow world."
 
 [node name="Instruction" parent="Camera2D/VBoxContainer" index="1"]
-margin_right = 290.0
+margin_right = 386.0
 text = "These entities move faster with the lights off."
 
 [node name="Extra" parent="Camera2D/VBoxContainer" index="2"]
-margin_right = 290.0
+margin_right = 386.0
 text = "Never let them touch you."
 
 [node name="DangerTimer" type="Timer" parent="." index="8"]
