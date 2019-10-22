@@ -49,7 +49,7 @@ func on_light_touching(coordinates):
 	
 	# set shadow scale
 	var real_height = abs(coordinates.y - $BodyCollision.global_position.y)
-	var shadow_height= abs(coordinates.y - viewport_size.y/2)
+	var shadow_height= abs(coordinates.y - 300)
 	shadow_scale = shadow_height / max(0.01, real_height)
 
 func _physics_process(delta):
@@ -75,10 +75,10 @@ func shadow_cast():
 	shadow_scale = (col_max - col_min) / body_size.x * 10
 	
 	if is_any_colliding and lights_on:
-		$ShadowSprite.global_position = Vector2(shadow_center, viewport_size.y - current_position.y)
+		$ShadowSprite.global_position = Vector2(shadow_center, 600 - current_position.y)
 		$ShadowCollision.disabled = false
 	else:
-		$ShadowSprite.global_position = Vector2(shadow_center, viewport_size.y*2)
+		$ShadowSprite.global_position = Vector2(shadow_center, 600*2)
 		$ShadowCollision.disabled = true
 		
 	$ShadowSprite.scale.x = shadow_scale*1.7

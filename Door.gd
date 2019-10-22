@@ -4,7 +4,7 @@ signal go_to_next_level
 
 func _ready():
 	var viewport_size = get_viewport().size
-	$Shadow.global_position.y = viewport_size.y - $DoorFrame.global_position.y
+	$Shadow.global_position.y = 600 - $DoorFrame.global_position.y
 
 
 func _on_Door_body_entered(body):

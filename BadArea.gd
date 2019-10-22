@@ -16,4 +16,4 @@ func _on_BadArea_body_entered(body):
 
 func shadow_cast():
 	#$Shadow.global_position.x = $Body.global_position.x
-	$Shadow.global_position.y = viewport_size.y - $Body.global_position.y
+	$Shadow.global_position.y = 600 - $Body.global_position.y
