@@ -11,29 +11,26 @@
 wait_time = 5.0
 
 [node name="Enemy" parent="." index="9" instance=ExtResource( 1 )]
-position = Vector2( 1143.36, 313.367 )
+position = Vector2( 1143.36, 260.313 )
 
 [node name="Enemy2" parent="." index="10" instance=ExtResource( 1 )]
-position = Vector2( 1067.18, -38.9686 )
+position = Vector2( 1147.44, -59.3742 )
 
-[node name="Enemy3" parent="." index="11" instance=ExtResource( 1 )]
-position = Vector2( -106.821, 321.53 )
+[node name="Lamp" parent="." index="11" instance=ExtResource( 4 )]
+position = Vector2( 742.208, 108.421 )
 
-[node name="Enemy4" parent="." index="12" instance=ExtResource( 1 )]
-position = Vector2( -34.7212, -30.8064 )
+[node name="Lamp2" parent="." index="12" instance=ExtResource( 4 )]
+position = Vector2( 152.791, 104.971 )
 
-[node name="Enemy5" parent="." index="13" instance=ExtResource( 1 )]
-position = Vector2( 502.625, -60.7346 )
+[node name="Body" parent="." index="15" instance=ExtResource( 2 )]
+position = Vector2( 223.157, 259.999 )
 
-[node name="Lamp" parent="." index="14" instance=ExtResource( 4 )]
-position = Vector2( 500, 100 )
+[node name="Body2" parent="." index="16" instance=ExtResource( 2 )]
+position = Vector2( 589.065, 80.6456 )
 
-[node name="Lamp2" parent="." index="15" instance=ExtResource( 4 )]
-position = Vector2( 350, 100 )
+[node name="Body3" parent="." index="17" instance=ExtResource( 2 )]
+position = Vector2( 665.298, 261.919 )
 
-[node name="Lamp3" parent="." index="16" instance=ExtResource( 4 )]
-position = Vector2( 650, 100 )
-
-[node name="Body" parent="." index="19" instance=ExtResource( 2 )]
-position = Vector2( 500, 200 )
+[node name="Body4" parent="." index="18" instance=ExtResource( 2 )]
+position = Vector2( 348.808, 68.4034 )
 [connection signal="timeout" from="DangerTimer" to="." method="_on_DangerTimer_timeout"]

@@ -13,6 +13,8 @@ var y_velo = 0
 var viewport_size
 var facing_right = true
 var die_once
+var jump_sound = true
+var land_sound = false
 
 var state = "game" # can be game, freeze
 
@@ -43,6 +45,12 @@ func _physics_process(delta):
 			
 		# Start grace timer up
 		if grounded:
+			if land_sound:
+				if randi()%2:
+					$Land1.play()
+				else:
+					$Land2.play()
+				land_sound = false
 			$GraceUp.start()
 		#var grounded = $GraceUp.time_left > 0
 		
@@ -51,6 +59,10 @@ func _physics_process(delta):
 		
 		#if grounded and Input.is_action_just_pressed('up'):
 		if $GraceUp.time_left > 0 and $GraceDown.time_left > 0:
+			if jump_sound:
+				$Jump.play()
+				jump_sound = false
+				land_sound = true
 			y_velo = -JUMP_FORCE
 			$GraceUp.set_wait_time(0)
 			$GraceDown.set_wait_time(0)
@@ -70,6 +82,8 @@ func _physics_process(delta):
 	else: #frozen
 		move_and_slide(Vector2(0, y_velo), Vector2(0, -1))
 		y_velo += GRAVITY
+		land_sound = false
+		jump_sound = true
 	
 	shadow_cast()
 
@@ -86,11 +100,12 @@ func flip():
 
 func die():
 	if die_once:
+		$Die.play()
 		$AnimationPlayer.play("die")
 		state = "die"
 		$CollisionBody.disabled = true
 		die_once = false
-		Jukebox.player_die()
+		#Jukebox.player_die()
 
 func enter_door():
 	state = "freeze"
@@ -102,3 +117,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		emit_signal("dead")
 	elif anim_name == "next_level":
 		emit_signal('next_level')
+
+
+func _on_Jump_finished():
+	jump_sound = true

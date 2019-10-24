@@ -22,6 +22,7 @@ text = "Never let them touch you."
 
 [node name="DangerTimer" type="Timer" parent="." index="8"]
 wait_time = 5.0
+one_shot = true
 
 [node name="Enemy" parent="." index="9" instance=ExtResource( 1 )]
 position = Vector2( 1143.36, 260.313 )

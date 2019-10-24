@@ -16,7 +16,7 @@ func _ready():
 		lamp.connect('lamp_touched', $Light, 'receive_click')
 	
 	for bad_area in get_tree().get_nodes_in_group("bad_area"):
-		bad_area.connect("kill_player", self, "kill_player")
+		bad_area.connect("kill_player", $Player, "die")
 		if bad_area.is_in_group("enemy"):
 			bad_area.connect("light", bad_area, "is_there_light")
 	
@@ -55,8 +55,8 @@ func _on_Door_go_to_next_level():
 	globals.next_level()
 
 
-func kill_player():
-	$Player.die()
+#func kill_player():
+#	pass $Player.die()
 
 
 func _on_Light_light(on):

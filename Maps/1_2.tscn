@@ -15,6 +15,9 @@ position = Vector2( 505, 300 )
 visible = true
 position = Vector2( 550.25, 286.723 )
 
+[node name="Light" parent="." index="2"]
+position = Vector2( 273.946, -45.1646 )
+
 [node name="Camera2D" parent="." index="5"]
 position = Vector2( 768, 150 )
 current = true
@@ -43,7 +46,7 @@ margin_bottom = 86.0
 text = "Press W to jump"
 
 [node name="Lamp" parent="." index="6" instance=ExtResource( 2 )]
-position = Vector2( 766, 91.833 )
+position = Vector2( 766, 110 )
 
 [node name="MessageTimer" parent="." index="8"]
 wait_time = 2.0

@@ -30,24 +30,23 @@ grow_vertical = 2
 
 [node name="Message" parent="Camera2D/VBoxContainer" index="0"]
 margin_top = 0.0
-margin_right = 362.0
-margin_bottom = 14.0
+margin_right = 480.0
+margin_bottom = 26.0
 text = "When stuck in limbo, you must be careful on both sides."
 
 [node name="Instruction" parent="Camera2D/VBoxContainer" index="1"]
-margin_top = 18.0
-margin_right = 362.0
-margin_bottom = 32.0
+margin_top = 30.0
+margin_right = 480.0
+margin_bottom = 56.0
 text = "There is more than meets the eye."
 
 [node name="Extra" parent="Camera2D/VBoxContainer" index="2"]
 modulate = Color( 1, 0, 0, 1 )
 self_modulate = Color( 1, 0, 0, 1 )
-margin_top = 36.0
-margin_right = 362.0
-margin_bottom = 50.0
+margin_top = 60.0
+margin_right = 480.0
+margin_bottom = 86.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "Avoid dangers bellow."
 
 [node name="Lamp" parent="." index="6" instance=ExtResource( 1 )]

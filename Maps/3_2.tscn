@@ -7,21 +7,6 @@
 
 [node name="Main" instance=ExtResource( 3 )]
 
-[node name="Message" parent="Camera2D/VBoxContainer" index="0"]
-margin_top = 14.0
-margin_right = 386.0
-margin_bottom = 40.0
-
-[node name="Instruction" parent="Camera2D/VBoxContainer" index="1"]
-margin_top = 44.0
-margin_right = 386.0
-margin_bottom = 70.0
-
-[node name="Extra" parent="Camera2D/VBoxContainer" index="2"]
-margin_top = 74.0
-margin_right = 386.0
-margin_bottom = 100.0
-
 [node name="DangerTimer" type="Timer" parent="." index="8"]
 wait_time = 5.0
 
