@@ -8,6 +8,8 @@ var do_once = true
 var death_position = 1
 
 func _ready():
+	# Transition
+	$CanvasLayer/EyeTransition/AnimationPlayer.play("open")
 	shadow_casting_array = get_tree().get_nodes_in_group("cast_shadow")
 	for body in shadow_casting_array:
 		body.on_light_touching($Light.global_position)
@@ -52,8 +54,8 @@ func _on_Light_light_position(light_position):
 
 
 func _on_Door_go_to_next_level():
-	globals.next_level()
-
+	$CanvasLayer/EyeTransition/AnimationPlayer.play("close")
+	
 
 #func kill_player():
 #	pass $Player.die()
@@ -108,3 +110,7 @@ func _on_StuckTimer_timeout():
 	$Camera2D/VBoxContainer/Message.text = "If stuck, restart by pressing R"
 	$Camera2D/VBoxContainer/TextHandler.play("show_1")
 	
+
+
+func _on_EyeTransition_animation_closed():
+	globals.next_level()

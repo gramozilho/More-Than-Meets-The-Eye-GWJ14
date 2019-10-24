@@ -16,7 +16,7 @@ func _ready():
 
 
 func restart():
-	current_level = 17
+	current_level = 0
 	Jukebox.background_switch()
 	load_new_level()
 
