@@ -7,12 +7,6 @@ func _ready():
 	viewport_size = get_viewport().size
 	$Player.state = "game"
 	do_once_cutscene = true
-	#$Body/ShadowCollision.disabled = true
-	#$Player/AnimationPlayer.play("show_1")
-	#$ExtraTimer.start()
-	#yield($ExtraTimer, "timeout")
-	#$Camera2D/VBoxContainer/TextHandler.play("show_3")
-	death_position = 2
 
 
 func _on_TextHandler_animation_finished(anim_name):

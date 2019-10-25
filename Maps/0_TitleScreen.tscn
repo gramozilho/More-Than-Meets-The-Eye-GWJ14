@@ -93,5 +93,8 @@ light_mask = 2
 margin_top = 203.0
 margin_right = 601.0
 margin_bottom = 203.0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.898039, 0.898039, 0.898039, 1 )
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]

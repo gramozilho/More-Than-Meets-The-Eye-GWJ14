@@ -4,7 +4,6 @@ var do_once_1_1 = true
 
 func _ready():
 	$Player.state = "freeze"
-	death_position = 2
 	show_first_two_labels(2)
 
 func _on_Light_light(on):

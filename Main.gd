@@ -9,6 +9,8 @@ var death_position = 1
 
 func _ready():
 	# Transition
+	var Mat = $CanvasLayer/EyeTransition.get_material()
+	Mat.set_shader_param("cutoff", -.1)
 	$CanvasLayer/EyeTransition/AnimationPlayer.play("open")
 	shadow_casting_array = get_tree().get_nodes_in_group("cast_shadow")
 	for body in shadow_casting_array:
@@ -92,17 +94,17 @@ func hide_all_labels():
 func _on_Player_dead():
 	# Instance death screen
 	var scene_instance = death_screen.instance()
-	if death_position == 2:
-		scene_instance.rect_position = Vector2(512, 0)
-		scene_instance.rect_scale = Vector2(0.5, 0.5)
-	elif death_position == 3:
-		scene_instance.rect_position = Vector2(512, 150)
-		scene_instance.rect_scale = Vector2(0.5, 0.5)
-	elif death_position == 4:
-		scene_instance.rect_position = Vector2(250, 75)
-		scene_instance.rect_scale = Vector2(0.75, 0.75)
+	#if death_position == 2:
+	#	scene_instance.rect_position = Vector2(512, 0)
+	#	scene_instance.rect_scale = Vector2(0.5, 0.5)
+	#elif death_position == 3:
+	#	scene_instance.rect_position = Vector2(512, 150)
+	#	scene_instance.rect_scale = Vector2(0.5, 0.5)
+	#elif death_position == 4:
+	#	scene_instance.rect_position = Vector2(250, 75)
+	#	scene_instance.rect_scale = Vector2(0.75, 0.75)
 		
-	add_child(scene_instance)
+	$CanvasMenu.add_child(scene_instance)
 
 
 func _on_StuckTimer_timeout():
@@ -113,4 +115,6 @@ func _on_StuckTimer_timeout():
 
 
 func _on_EyeTransition_animation_closed():
+	var Mat = $CanvasLayer/EyeTransition.get_material()
+	Mat.set_shader_param("cutoff", -.1)
 	globals.next_level()
