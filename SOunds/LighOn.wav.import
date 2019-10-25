@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/LighOn.wav-f010e02ae781d66773977100d6c60040.sample"
+path="res://.import/LighOn.wav-432b4bbc4ef09fba8be718c90045f026.sample"
 
 [deps]
 
-source_file="res://SOunds/LighOn.wav"
-dest_files=[ "res://.import/LighOn.wav-f010e02ae781d66773977100d6c60040.sample" ]
+source_file="res://Sounds/LighOn.wav"
+dest_files=[ "res://.import/LighOn.wav-432b4bbc4ef09fba8be718c90045f026.sample" ]
 
 [params]
 

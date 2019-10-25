@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Lamp.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Interactables/Lamp.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Main.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Maps/1_3.gd" type="Script" id=3]
-[ext_resource path="res://BadArea.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Interactables/BadArea.tscn" type="PackedScene" id=4]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.2128, 96.0021 )

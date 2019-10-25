@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var death_screen = load("res://DeathScreen.tscn")
+onready var death_screen = load("res://Menus/DeathScreen.tscn")
 
 var shadow_casting_array
 var mouse_state = "game"

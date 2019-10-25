@@ -1,0 +1,158 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://SOunds/land_sound_2.wav" type="AudioStream" id=1]
+[ext_resource path="res://Characters/Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/colors.PNG" type="Texture" id=3]
+[ext_resource path="res://SOunds/jump_sound_2.wav" type="AudioStream" id=4]
+[ext_resource path="res://SOunds/land_sound_3.wav" type="AudioStream" id=5]
+[ext_resource path="res://SOunds/death_v4.wav" type="AudioStream" id=6]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 15 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "enter_door"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Body:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -8 ) ]
+}
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 2 )
+
+[node name="CollisionBody" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Body" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 500, 30, 20, 30 )
+
+[node name="BodyEyeLeft" type="Sprite" parent="Body" groups=[
+"eye",
+]]
+position = Vector2( -1.5, -9 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 5, 5 )
+
+[node name="BodyEyeRight" type="Sprite" parent="Body" groups=[
+"eye",
+]]
+position = Vector2( 6, -9 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 5, 5 )
+
+[node name="Shadow" type="Sprite" parent="."]
+modulate = Color( 0.431373, 0.431373, 0.431373, 0.752941 )
+texture = ExtResource( 3 )
+flip_v = true
+region_enabled = true
+region_rect = Rect2( 0, 0, 20, 30 )
+
+[node name="ShadowEyeLeft" type="Sprite" parent="Shadow" groups=[
+"eye",
+]]
+position = Vector2( -1.5, 9 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 500, 0, 5, 5 )
+
+[node name="ShadowEyeRight" type="Sprite" parent="Shadow" groups=[
+"eye",
+]]
+position = Vector2( 6, 9 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 500, 0, 5, 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/die = SubResource( 2 )
+anims/enter_door = SubResource( 3 )
+
+[node name="GraceDown" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="GraceUp" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+
+[node name="Land1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Land2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+
+[node name="Die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -15.0
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="finished" from="Jump" to="." method="_on_Jump_finished"]

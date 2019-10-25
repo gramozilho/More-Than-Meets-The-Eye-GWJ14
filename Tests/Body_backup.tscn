@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Assets/colors.PNG" type="Texture" id=1]
 [ext_resource path="res://Assets/caster.png" type="Texture" id=2]
-[ext_resource path="res://Body.gd" type="Script" id=3]
+[ext_resource path="res://Characters/Body.gd" type="Script" id=3]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

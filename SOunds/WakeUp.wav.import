@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/WakeUp.wav-7351c34b0a035477f83730da980bd898.sample"
+path="res://.import/WakeUp.wav-b3472b4932406e5b770e0f05ef44f6e8.sample"
 
 [deps]
 
-source_file="res://SOunds/WakeUp.wav"
-dest_files=[ "res://.import/WakeUp.wav-7351c34b0a035477f83730da980bd898.sample" ]
+source_file="res://Sounds/WakeUp.wav"
+dest_files=[ "res://.import/WakeUp.wav-b3472b4932406e5b770e0f05ef44f6e8.sample" ]
 
 [params]
 

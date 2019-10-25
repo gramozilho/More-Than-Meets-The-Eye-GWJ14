@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/land_sound.wav-7fdb181ae965f90e32fb7408e069bfcb.sample"
+path="res://.import/land_sound.wav-fa122546a8fe7d64657963db89b30697.sample"
 
 [deps]
 
-source_file="res://SOunds/land_sound.wav"
-dest_files=[ "res://.import/land_sound.wav-7fdb181ae965f90e32fb7408e069bfcb.sample" ]
+source_file="res://Sounds/land_sound.wav"
+dest_files=[ "res://.import/land_sound.wav-fa122546a8fe7d64657963db89b30697.sample" ]
 
 [params]
 

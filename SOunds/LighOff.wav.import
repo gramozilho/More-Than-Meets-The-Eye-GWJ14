@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/LighOff.wav-897098dc95ac653ff4e437a881a2bfd9.sample"
+path="res://.import/LighOff.wav-cbfd77e620eb3a13b9ffc11865b3fb6d.sample"
 
 [deps]
 
-source_file="res://SOunds/LighOff.wav"
-dest_files=[ "res://.import/LighOff.wav-897098dc95ac653ff4e437a881a2bfd9.sample" ]
+source_file="res://Sounds/LighOff.wav"
+dest_files=[ "res://.import/LighOff.wav-cbfd77e620eb3a13b9ffc11865b3fb6d.sample" ]
 
 [params]
 

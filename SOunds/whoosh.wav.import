@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/whoosh.wav-9a18833b578882de96473789fd949938.sample"
+path="res://.import/whoosh.wav-01b971759e13f7a288a26851773de36e.sample"
 
 [deps]
 
-source_file="res://SOunds/whoosh.wav"
-dest_files=[ "res://.import/whoosh.wav-9a18833b578882de96473789fd949938.sample" ]
+source_file="res://Sounds/whoosh.wav"
+dest_files=[ "res://.import/whoosh.wav-01b971759e13f7a288a26851773de36e.sample" ]
 
 [params]
 

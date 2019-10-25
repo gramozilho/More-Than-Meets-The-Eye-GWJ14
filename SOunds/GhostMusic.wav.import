@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/GhostMusic.wav-bd5bee8baa3638061e8270e425cb0bbe.sample"
+path="res://.import/GhostMusic.wav-a3aa0668dad1e811f7326a220214d106.sample"
 
 [deps]
 
-source_file="res://SOunds/GhostMusic.wav"
-dest_files=[ "res://.import/GhostMusic.wav-bd5bee8baa3638061e8270e425cb0bbe.sample" ]
+source_file="res://Sounds/GhostMusic.wav"
+dest_files=[ "res://.import/GhostMusic.wav-a3aa0668dad1e811f7326a220214d106.sample" ]
 
 [params]
 
