@@ -23,7 +23,7 @@ config/icon="res://Assets/icon_new.png"
 [autoload]
 
 globals="*res://globals.gd"
-Jukebox="*res://Jukebox.tscn"
+Jukebox="*res://Sounds/Jukebox.tscn"
 
 [display]
 
