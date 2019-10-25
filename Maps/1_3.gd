@@ -10,15 +10,11 @@ func _ready():
 
 
 func _on_TextHandler_animation_finished(anim_name):
-	print(anim_name)
 	if anim_name == "show_2":
-		#$Player.state = "freeze"
-		#$CameraTween.interpolate_property($Camera2D, "position", $Camera2D.position, Vector2(viewport_size.x*3/4, viewport_size.y/2), 5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 		$CameraTween.interpolate_property($Camera2D, "position", $Camera2D.position, Vector2($Camera2D.position.x, 300), 5, Tween.TRANS_EXPO, Tween.EASE_IN_OUT)
 		$CameraTween.start()
 		$SecondMoveTimer.start()
 	elif anim_name == "show_3_danger":
-		death_position = 3
 		$Player.state = "game"
 
 
@@ -27,7 +23,6 @@ func _on_ExtraTimer_timeout():
 
 
 func _on_SecondMoveTimer_timeout():
-	#$Camera2D/VBoxContainer/Extra.modulate = Color(1, 0, 0, 0)
 	$Camera2D/VBoxContainer/TextHandler.play("show_3_danger")
 
 

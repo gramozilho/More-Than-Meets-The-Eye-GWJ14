@@ -21,20 +21,11 @@ func _ready():
 	$ShadowSprite.scale.x = body_size[0]/shadow_size[0]
 	$ShadowSprite.scale.y = body_size[1]/shadow_size[1]*1.4
 	
-	# Change collision shapes
-	#for obj in [$BodyCollision, $ShadowCollision]:
-		# print(obj.scale)
-		#obj.scale.x = 2 #body_size[0]*$BodySprite.scale.x / (obj.shape.extents[0]*16)
-		#obj.scale.y = 2 #body_size[1]*$BodySprite.scale.y / (obj.shape.extents[1]*16)
-		# print('scale ', obj.scale.x, '  ext ',obj.shape.extents[0], '  body size ', body_size[0])
-	
 	# Rotate raycast to align with light angle
 	$RayCast2D.set_cast_to(Vector2(0, raycast_size))
 	
 	# add all corner raycasts
 	raycast_group = [$Pos_TL/RayCast1, $Pos_TR/RayCast2, $Pos_BL/RayCast3, $Pos_BR/RayCast4]
-	#raycast_group = get_tree().get_nodes_in_group("raycast")
-	#print(raycast_group)
 
 
 func on_light_touching(coordinates):
@@ -60,9 +51,6 @@ func shadow_cast():
 	var current_position = $BodyCollision.global_position
 	# Raycast handling
 	var collision_point = $RayCast2D.get_collision_point()
-	#$ShadowSprite.global_position = collision_point + \
-	#	Vector2(0, viewport_size.y/2 - current_position.y)
-	#$ShadowSprite.scale.x = shadow_scale
 	
 	var stored_collisions = []
 	for raycast in raycast_group:
@@ -85,17 +73,11 @@ func shadow_cast():
 	#$ShadowSprite.scale.y = 
 	
 	$ShadowCollision.scale.x = shadow_scale*1.4
-	
-	# Backgoround shadow
-	#$ShadowSpriteBG.position.x = $ShadowSprite.position.x
-	#$ShadowSpriteBG.scale.x = $ShadowSprite.scale.x*2
-	
-	#$ShadowSpriteBG.position.y =  ($ShadowSprite.position.y+150)/2.0
+
 
 func mirror():
 	# Fake collision position update
 	$ShadowCollision.global_position.x = $ShadowSprite.global_position.x
 
 func if_light_on_enable_shadow(on):
-	print('Disabling shadow collision? ', on)
 	lights_on = on

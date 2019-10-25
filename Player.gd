@@ -52,12 +52,7 @@ func _physics_process(delta):
 					$Land2.play()
 				land_sound = false
 			$GraceUp.start()
-		#var grounded = $GraceUp.time_left > 0
 		
-		
-		#print('jump', jump, '   grounded', grounded)
-		
-		#if grounded and Input.is_action_just_pressed('up'):
 		if $GraceUp.time_left > 0 and $GraceDown.time_left > 0:
 			if jump_sound:
 				$Jump.play()
@@ -89,7 +84,6 @@ func _physics_process(delta):
 
 
 func shadow_cast():
-	#$Shadow.global_position.x = $Body.global_position.x
 	$Shadow.global_position.y = 600 - $Body.global_position.y
 
 
@@ -105,7 +99,7 @@ func die():
 		state = "die"
 		$CollisionBody.disabled = true
 		die_once = false
-		#Jukebox.player_die()
+
 
 func enter_door():
 	state = "freeze"

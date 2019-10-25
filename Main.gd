@@ -5,7 +5,7 @@ onready var death_screen = load("res://DeathScreen.tscn")
 var shadow_casting_array
 var mouse_state = "game"
 var do_once = true
-var death_position = 1
+
 
 func _ready():
 	# Transition
@@ -36,8 +36,6 @@ func _ready():
 	$Camera2D/VBoxContainer/Instruction.modulate = Color(1, 1, 1, 0)
 	$Camera2D/VBoxContainer/Extra.modulate = Color(1, 1, 1, 0)
 	
-	death_position = 1
-	
 	for enemy in get_tree().get_nodes_in_group("enemy"):
 		$Light.connect("light", enemy, "is_there_light")
 
@@ -45,10 +43,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("click") and mouse_state == "free":
 		$Light.global_position = get_global_mouse_position()
-	
-	# Cast shadows
-	#$TestBody.cast_shadows($Light.global_position)
-	#$Body.on_light_touching($Light.global_position)
+
 
 func _on_Light_light_position(light_position):
 	for body in shadow_casting_array:
@@ -57,23 +52,18 @@ func _on_Light_light_position(light_position):
 
 func _on_Door_go_to_next_level():
 	$CanvasLayer/EyeTransition/AnimationPlayer.play("close")
-	
-
-#func kill_player():
-#	pass $Player.die()
 
 
 func _on_Light_light(on):
-	#print('light on from main ', on)
 	if shadow_casting_array != null:
 		# Disable all body shadow collisions
 		for body in shadow_casting_array:
 			body.if_light_on_enable_shadow(on)
-	#pass # Replace with function body.
 
 
 func _on_TextHandler_animation_finished(anim_name):
-	pass #$Camera2D/VBoxContainer/TextHandler.play("show_2")
+	pass
+
 
 func show_first_two_labels(time_delay):
 	$MessageTimer.wait_time = .5
@@ -94,16 +84,6 @@ func hide_all_labels():
 func _on_Player_dead():
 	# Instance death screen
 	var scene_instance = death_screen.instance()
-	#if death_position == 2:
-	#	scene_instance.rect_position = Vector2(512, 0)
-	#	scene_instance.rect_scale = Vector2(0.5, 0.5)
-	#elif death_position == 3:
-	#	scene_instance.rect_position = Vector2(512, 150)
-	#	scene_instance.rect_scale = Vector2(0.5, 0.5)
-	#elif death_position == 4:
-	#	scene_instance.rect_position = Vector2(250, 75)
-	#	scene_instance.rect_scale = Vector2(0.75, 0.75)
-		
 	$CanvasMenu.add_child(scene_instance)
 
 
@@ -111,7 +91,6 @@ func _on_StuckTimer_timeout():
 	hide_all_labels()
 	$Camera2D/VBoxContainer/Message.text = "If stuck, restart by pressing R"
 	$Camera2D/VBoxContainer/TextHandler.play("show_1")
-	
 
 
 func _on_EyeTransition_animation_closed():

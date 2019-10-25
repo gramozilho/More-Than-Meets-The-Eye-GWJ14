@@ -16,9 +16,6 @@ func finish():
 func button_pressed():
 	$Button.play()
 
-#func player_die():
-	#$Die.play()
-
 func ghost_switch():
 	$BackgroundMusic.stop()
 	$GhostMusic.play()
